@@ -21,7 +21,7 @@ func TestBuildConfig(t *testing.T) {
 			},
 			expectation: Config{
 				Type:    "sqlite",
-				Name:    "ordarr.db",
+				Name:    "ordarr.DB",
 				User:    "ordarr",
 				Pass:    "ordarr",
 				Host:    "localhost",

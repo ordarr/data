@@ -29,7 +29,7 @@ func BuildConfig() (*Config, error) {
 		}
 	} else {
 		viper.SetDefault("TYPE", "sqlite")
-		viper.SetDefault("NAME", "ordarr.db")
+		viper.SetDefault("NAME", "ordarr.DB")
 		viper.SetDefault("USER", "ordarr")
 		viper.SetDefault("PASS", "ordarr")
 		viper.SetDefault("HOST", "localhost")
