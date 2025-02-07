@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/ordarr/data/compare/v1.1.3...v1.1.4) (2025-02-07)
+
+
+### Bug Fixes
+
+* adding tests and updating create functions ([b9075f4](https://github.com/ordarr/data/commit/b9075f486a596742d9737c75f061b7648f43ca9a))
+
 ## [1.1.3](https://github.com/ordarr/data/compare/v1.1.2...v1.1.3) (2025-02-07)
 
 
