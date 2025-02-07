@@ -42,7 +42,7 @@ func Connect(config *Config) *gorm.DB {
 		log.Fatalf("Core database connection error: %v", err)
 	}
 
-	err = db.AutoMigrate(&Author{}, &Book{})
+	err = db.AutoMigrate(&Author{}, &Book{}, &ExternalIds{})
 	if err != nil {
 		log.Fatalf("Core migration connection error: %v", err)
 	}
