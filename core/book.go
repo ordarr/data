@@ -9,7 +9,6 @@ import (
 
 type IBookRepository interface {
 	Repository[Book]
-	GetByTitle(name []string) ([]*Book, error)
 }
 
 type BookRepository struct {
@@ -18,7 +17,7 @@ type BookRepository struct {
 
 type Book struct {
 	BaseTable
-	Title       string        `gorm:"index" json:"title"`
+	Name        string        `gorm:"index" json:"name"`
 	ExternalIds []ExternalIds `gorm:"serializer:json" json:"externalIds"`
 }
 
@@ -31,7 +30,7 @@ func (repo *BookRepository) GetAll() ([]*Book, error) {
 	return target, nil
 }
 
-func (repo *BookRepository) GetById(ids []string) ([]*Book, error) {
+func (repo *BookRepository) GetByID(ids []string) ([]*Book, error) {
 	var target []*Book
 	repo.DB.Model(&Book{}).Where("id in ?", ids).Scan(&target)
 	if target == nil {
@@ -40,17 +39,16 @@ func (repo *BookRepository) GetById(ids []string) ([]*Book, error) {
 	return target, nil
 }
 
-func (repo *BookRepository) GetByTitle(titles []string) ([]*Book, error) {
+func (repo *BookRepository) GetByName(names []string) ([]*Book, error) {
 	var target []*Book
-	repo.DB.Model(&Book{}).Where("title in ?", titles).Scan(&target)
+	repo.DB.Model(&Book{}).Where("name in ?", names).Scan(&target)
 	if target == nil {
 		return nil, status.Error(codes.NotFound, "book not found")
 	}
 	return target, nil
 }
 
-func (repo *BookRepository) Create(title string) (*Book, error) {
-	book := &Book{Title: title}
-	repo.DB.Create(book)
-	return book, nil
+func (repo *BookRepository) Create(entity *Book) (*Book, error) {
+	repo.DB.Create(entity)
+	return entity, nil
 }

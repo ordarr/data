@@ -26,7 +26,7 @@ func insertTestBooks(db *gorm.DB, ctx context.Context) []*core.Book {
 			Value:  "2",
 		},
 		},
-		Title: "Book One",
+		Name: "Book One",
 	}
 	bookTwo := &core.Book{
 		ExternalIds: []core.ExternalIds{{
@@ -37,7 +37,7 @@ func insertTestBooks(db *gorm.DB, ctx context.Context) []*core.Book {
 			Value:  "3",
 		},
 		},
-		Title: "Book Two",
+		Name: "Book Two",
 	}
 	session := db.Session(&gorm.Session{Context: ctx})
 	session.Create(&bookOne)

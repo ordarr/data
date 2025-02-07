@@ -34,5 +34,6 @@ type ExternalIds struct {
 type Repository[T interface{}] interface {
 	GetAll() ([]*T, error)
 	GetByID(ids []string) ([]*T, error)
+	GetByName(names []string) ([]*T, error)
 	Create(entity *T) (*T, error)
 }

@@ -13,17 +13,17 @@ func (suite *BookTestSuite) TestGetBookById() {
 	suite.Run("ReturnsPopulatedBook", func() {
 		inserted := suite.populate()
 
-		out, _ := suite.repo.GetById([]string{inserted[0].ID})
+		out, _ := suite.repo.GetByID([]string{inserted[0].ID})
 
 		assert.NotNil(t, out)
 		assert.Len(t, out, 1)
-		assert.Equal(t, inserted[0].Title, out[0].Title)
+		assert.Equal(t, inserted[0].Name, out[0].Name)
 	})
 
 	suite.Run("ErrorWhenBookDoesntExist", func() {
 		t := suite.T()
 
-		_, err := suite.repo.GetById([]string{"4783e133-d856-43f4-8d38-9e50c5996cad"})
+		_, err := suite.repo.GetByID([]string{"4783e133-d856-43f4-8d38-9e50c5996cad"})
 
 		assert.NotNil(t, err)
 		assert.ErrorIs(t, err, status.Error(codes.NotFound, "book not found"))

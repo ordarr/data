@@ -14,7 +14,7 @@ func (suite *BookTestSuite) TestGetBookByTitleReturnsBookWhenFound() {
 	suite.Run("ReturnsPopulatedBook", func() {
 		suite.populate()
 
-		out, _ := suite.repo.GetByTitle([]string{"Book One"})
+		out, _ := suite.repo.GetByName([]string{"Book One"})
 
 		assert.NotNil(t, out)
 		assert.Len(t, out, 1)
@@ -22,7 +22,7 @@ func (suite *BookTestSuite) TestGetBookByTitleReturnsBookWhenFound() {
 	})
 
 	suite.Run("ErrorWhenBookDoesntExist", func() {
-		_, err := suite.repo.GetByTitle([]string{"some-random-id"})
+		_, err := suite.repo.GetByName([]string{"some-random-id"})
 
 		assert.NotNil(t, err)
 		assert.ErrorIs(t, err, status.Error(codes.NotFound, "book not found"))

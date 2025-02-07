@@ -8,7 +8,6 @@ import (
 
 type IAuthorRepository interface {
 	Repository[Author]
-	GetByName(name []string) ([]*Author, error)
 }
 
 type AuthorRepository struct {
@@ -30,7 +29,7 @@ func (repo *AuthorRepository) GetAll() ([]*Author, error) {
 	return target, nil
 }
 
-func (repo *AuthorRepository) GetById(ids []string) ([]*Author, error) {
+func (repo *AuthorRepository) GetByID(ids []string) ([]*Author, error) {
 	var target []*Author
 	repo.DB.Model(&Author{}).Where("id in ?", ids).Scan(&target)
 	if target == nil {
@@ -48,8 +47,7 @@ func (repo *AuthorRepository) GetByName(names []string) ([]*Author, error) {
 	return target, nil
 }
 
-func (repo *AuthorRepository) Create(name string) (*Author, error) {
-	author := &Author{Name: name}
-	repo.DB.Create(&author)
-	return author, nil
+func (repo *AuthorRepository) Create(entity *Author) (*Author, error) {
+	repo.DB.Create(&entity)
+	return entity, nil
 }
