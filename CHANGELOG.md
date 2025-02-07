@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/ordarr/data/compare/v1.1.2...v1.1.3) (2025-02-07)
+
+
+### Bug Fixes
+
+* allowing getByName/Title to return multiple ([356b78d](https://github.com/ordarr/data/commit/356b78d289c51a64e03009403a8ee3fdc0bf781a))
+
 ## [1.1.2](https://github.com/ordarr/data/compare/v1.1.1...v1.1.2) (2025-02-07)
 
 
