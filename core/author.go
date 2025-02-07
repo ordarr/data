@@ -8,7 +8,7 @@ import (
 
 type IAuthorRepository interface {
 	Repository[Author]
-	GetByName(name *string) (*Author, error)
+	GetByName(name []*string) (*Author, error)
 }
 
 type AuthorRepository struct {
