@@ -9,7 +9,7 @@ import (
 
 type IBookRepository interface {
 	Repository[Book]
-	GetByName(name []*string) (*Book, error)
+	GetByTitle(name []string) (*Book, error)
 }
 
 type BookRepository struct {
