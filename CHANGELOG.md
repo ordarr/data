@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/ordarr/data/compare/v1.0.0...v1.1.0) (2025-02-07)
+
+
+### Features
+
+* creating base table, repos, and simplifying external ids ([6da4fb1](https://github.com/ordarr/data/commit/6da4fb18cc1f18da926c669d59b2fb22f7924359))
+
 ## 1.0.0 (2025-02-01)
 
 
