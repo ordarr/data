@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ordarr/data/compare/v1.1.4...v1.2.0) (2025-02-08)
+
+
+### Features
+
+* adding User entity ([362d00c](https://github.com/ordarr/data/commit/362d00c057dfb75ba382938eff4bee0cbf87fe7b))
+
 ## [1.1.4](https://github.com/ordarr/data/compare/v1.1.3...v1.1.4) (2025-02-07)
 
 
